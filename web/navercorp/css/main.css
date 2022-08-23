@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+@import url(../../../css/reset.css);
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+   /*font-family: 'Open Sans', sans-serif;*/
+@font-face {
+   font-family: 'NB Gothic';
+   src: url(../fonts/NanumBarunGothic.woff);
+}
+@font-face {
+   font-family: '나눔스퀘어';font-weight: 700;
+   src: url(../fonts/NanumSquareOTFBold.woff);
+}
+@font-face {
+   font-family: '나눔스퀘어';font-weight: 800;
+   src: url(../fonts/NanumSquareOTFExtraBold.woff);
+}
+@font-face {
+   font-family: '나눔스퀘어';font-weight: 400;
+   src: url(../fonts/NanumSquareOTFRegular.woff);
+}
+/* Common */
+:root {
+   --green : #00c73c;
+}
+body {
+   font-family: 'Open Sans', '나눔스퀘어', 'NB Gothic', '맑은 고딕', 'AppleSDGothicNeo', sans-serif;
+   font-size: 16px;font-weight: 400;
+}
+.container {width: 1600px;margin: auto;position: relative;}
+.sub_container {width: 1120px;margin: auto;}
+.blind {display: block;width: 1px;height: 1px;overflow: hidden;}
+
+.container::after {content:"";display: block;clear: both;}
+.clrfix::after {content: "";display: block;clear: both;}
+
+/* Skip_Nav */
+.skip_nav a {
+   position: fixed;top: -50px;left: 0;right: 0;background: green;color: #FFF;text-align: center;line-height: 50px;
+}
+.skip_nav a:focus {top: 0;}
+
+#wrap {min-width: 1120px;}
+
+/* header */
+header {height: 80px;}
+header h1 {float: left;margin-top: 32px;}
+header h1 a {
+   display: block;width: 87px;height: 17px;
+   background: url(../img/common/header_logo.png);
+}
+header .language {float: right;margin-right: 65px;font-size: 12px;}
+header .language a {display: block;float: left;position: relative;line-height: 80px;}
+header .language .current_lang {padding-right: 24px;}
+header .language .current_lang::after {
+   content: "";display: block;width: 1px;height: 10px;
+   position: absolute;right: 12px;top: 35px;background: red;
+}
+/*
+header .language {float: right;margin-right: 65px;font-size: 12px;}
+header .language a::after {
+   content: "";display: inline-block;width: 1px;height: 10px;background: blue;margin: 1px 5px;
+}
+header .language a:last-child::after {display: none;}
+*/
+
+header .sitemap_box {position: absolute;right: 0;top: 33px;height: 14px;}
+header .sitemap_btn {position: relative; width: 24px;height: 14px;}
+header .sitemap_btn span {
+   display: block;position: absolute;left: 0;
+   width: 24px;height: 2px;background: #333;
+}
+header .sitemap_btn span.bar_t {top: 0;}
+header .sitemap_btn span.bar_m {top: 50%;transform: translateY(-50%);}
+header .sitemap_btn span.bar_b {bottom: 0;}
+header nav {text-align: center;}
+header #gnb {display: inline-block;}
+/*
+   요소를 가운데 정렬하는 방법 중에 포지션을 이용하는 방법
+   header #gnb {position: absolute;left: 50%;transform: translateX(-50%);}
+
+   - 포지션의 left:50% 속성이 면적을 차지하기 때문에 부모의 크기가 변동되는 반응형에서 부모보다 커지는 상황이 발생할 수 있다.
+*/
+header #gnb>li {display: inline-block;}
+header #gnb>li>a {display: block;line-height: 80px;margin: 0 30px ;}
+
+/* footer */
+footer {padding: 70px 0; background: #f8f9fa;}
+footer strong {float: left;display: block;width: 63px;height: 14px;margin-right: 22px;
+   background: url(../img/common/footer_logo.png);}
+footer .footer_menu li {float: left;font-size: 14px;}
+footer .footer_menu li::after {
+   content: "";display: block;width: 1px;height: 12px;
+   margin: 0 6px;background: #dfe0e1;float: right;
+}/*li의 막내자손, a의 동생*//*#dfe0e1*/
+footer .footer_menu li:last-child::after {display: none;}
+footer .family_box {float: right;position: relative;}
+footer .family_box button {
+   position: relative;width: 120px;line-height: 16px;text-align: left;box-sizing: border-box;font-size: 14px;
+}
+footer .family_box button::after {
+   content: "";display: block;
+   position: absolute;top: 0;right: 0;
+   width: 16px;height: 16px;background: url(../img/common/sprite.png) -222px -26px;
+}
+footer .family_box button:active+ul {display: block;}
+footer .family_box ul {
+   display: none;position: absolute;right: 0;bottom: 0;padding: 20px 0;
+   background: #FFF;border: 1px solid #dedfe0;font-size: 14px;
+}
+footer .family_box ul li {margin: 10px 0;}
+footer .family_box ul a {
+   display: block;width: 150px;height: 18px;padding: 0 24px;line-height: 18px;
+}
+footer .family_box ul a:hover {color: var(--green);}
+footer .family_box ul a::after {
+   content: "";display: none;width: 18px;height: 18px;
+   background: url(../img/common/sprite.png) -104px -68px;
+   vertical-align: middle;margin-left: 8px;
+}
+footer .family_box ul a:hover::after {display: inline-block;}
+footer .copyright {height: 16px;background: url(../img/common/footer_copy.png) no-repeat center center;}
+
+/* 
+   footer .family_box ul.family_list a::after {
+      content: "";display: inline-block;width: 18px;height: 18px;
+      background: url(../img/common/sprite.png) -104px -68px;
+      vertical-align: middle;margin-left: 8px;
+   }
+*/
+
+/* Main - index */
+/* service_wrap */
+main .service_wrap li {float: left;width: 533px;height: 400px;}
+main .service_wrap li:nth-child(1) {background: url(../img/main/img_main_content13.png);}
+main .service_wrap li:nth-child(2) {background: url(../img/main/img_main_content14.png);}
+main .service_wrap li:nth-child(3) {background: url(../img/main/img_main_content15.png);}
+main .service_wrap li:nth-child(4) {background: url(../img/main/img_main_content4.png);}
+main .service_wrap li:nth-child(5) {background: url(../img/main/img_main_content5.png);}
+main .service_wrap li:nth-child(6) {background: url(../img/main/img_main_content16.png);}
+main .service_wrap li:nth-child(7) {background: url(../img/main/img_main_content7.png);}
+main .service_wrap li:nth-child(8) {background: url(../img/main/img_main_content8.png);}
+main .service_wrap li:nth-child(9) {background: url(../img/main/img_main_content17.png);}
+main .service_wrap li a {
+   display: block;position: relative;height: 100%;background: rgba(0,0,10,0);color: #FFF;overflow: hidden;transition: background 0.3s;
+}
+main .service_wrap li a:hover {background: rgba(0,0,10,0.3);}
+main .service_wrap li .svc_name {
+   position: absolute;left: 30px;bottom: -120px;opacity: 0;
+   transition: opacity 0.5s, bottom 0.3s;
+}
+main .service_wrap li:hover .svc_name {opacity: 1;bottom: 30px;}
+main .service_wrap li .svc_name::before {
+   content: "";display: block;width: 23px;height: 23px;margin-bottom: 40px;
+   background: url(../img/common/sprite.png);background-position: -199px -129px;
+}
+main .service_wrap li .svc_name strong {display: block;margin-bottom: 12px;font-weight: bold;font-size: 22px;}
+
+/* platform_wrap */
+main .platform_wrap {padding: 120px 0;text-align: center;}
+main .platform_wrap h2 {margin-bottom: 26px;font-size: 33px;font-weight: 700;}
+main .platform_wrap>p {margin-bottom: 140px;font-size: 18px;line-height: 1.5em;}
+main .platform_wrap ul {/*display: inline-block;*/width: 1380px;margin: auto;}
+/*
+   inline-block: li 사이들에 생기는 공백이 문제// 특히 이번 경우처럼 구분선을 적용해야하는 경우엔 특히나 더더욱 사용하지 말 것
+   그냥 float랑 clrfix 사용하자
+   대신 float은 정렬 안 됨.
+   inline-block 사용하면 margin:auto 사용 안 해도 되고, m:a 사용할 거면 clrfix 필수
+*/
+main .platform_wrap {}
+main .platform_wrap li {
+   float: left;width: 25%;border-right: 1px solid #dadada;box-sizing: border-box;
+}
+main .platform_wrap li:last-child {border: none;}
+main .platform_wrap li a::before {
+   content: "";display: inline-block;height: 100px;margin-bottom: 40px;
+   background-image: url(../img/common/sprite.png);background-position-y: -957px;
+}
+main .platform_wrap li a {display: block;}
+main .platform_wrap li a:hover strong {text-decoration: underline;}
+main .platform_wrap li:nth-child(1) a::before {width: 87px;background-position-x: 0;}
+main .platform_wrap li:nth-child(2) a::before {width: 101px;background-position-x: -92px;}
+main .platform_wrap li:nth-child(3) a::before {width: 110px;background-position-x: -199px;}
+main .platform_wrap li:nth-child(4) a::before {width: 93px;background-position-x: -316px;}
+main .platform_wrap li strong {display: block;color: var(--green);margin-bottom: 10px;}
+main .platform_wrap li p {line-height: 1.6em;color: #606167;font-size: 15px;}
+
+/* Main - Sub*/
+main .location_wrap li {float: left;position: relative;padding-right: 25px;font-size: 12px; color: #212121;}
+main .location_wrap li::after {
+   content:"";display: block;width: 5px;height: 7px;
+   background: url(../img/common/sprite.png) -103px 0;
+   /*float: right;margin: 3px 10px;*/
+   position: absolute;right: 10px;top: 3px;
+}
+main .location_wrap li:last-child::after {display: none;}
+main .location_wrap li a {color: #878890;}
+main .location_wrap li a:hover {text-decoration: underline;}
+main .page_title_wrap {padding-top: 50px;text-align: center;}
+main .page_title_wrap h2 {margin-bottom: 46px;font-size: 42px;font-weight: 700;color: #212121;}
+main .page_title_wrap p {font-size: 20px;line-height: 33px;margin-bottom: 26px;}
+main .page_title_wrap img {width: 100%;}
+
+main .main_contents_wrap {padding: 60px 0;}
+.contents_box{overflow: hidden;margin-bottom: 60px;}
+.contents_box .content_left {
+   float: left;width: 260px;font-size: 20px;font-weight: 700;line-height: 30px;
+}
+.contents_box .content_right {
+   float: left;width: 860px;padding-top: 30px;border-top: 2px solid #333;
+   color: #606167;font-size: 15px;line-height: 26px;
+}
+.contents_box .content_right.type2 {padding-top: 0;border: none;}
+.contents_box .content_right .btn_type2 {margin-top: 10px;padding-left: 0;} 
+.content_right li {float: left;width: 390px;margin-bottom: 50px;}
+.content_right li:nth-child(2n) {margin-left: 80px;}
+.content_right a {display: block;position: relative;padding-left: 90px;/*80px*/}
+.content_right a::before {
+   content: "";display: block;
+   position: absolute;left: 0;top: 50%;transform: translateY(-50%);
+   
+}
+.content_right.devel a::before {
+   background-image: url(../img/common/sprite.png);
+}
+.content_right .d1 a::before {
+   width: 74px;height: 20px;background-position: -205px -514px;
+}
+.content_right .d2 a::before {
+   width: 58px;height: 47px;background-position: -70px -562px;
+}
+.content_right .d3 a::before {
+   width: 58px;height: 37px;background-position: -141px -559px;
+}
+.content_right .d4 a::before {
+   width: 60px;height: 60px;background-position: -206px -544px;
+}
+.content_right.api a::before {
+   background-image: url(../img/service/sp_service.png);
+}
+.content_right .api1 a::before {
+   width: 60px;height: 60px;background-position: 0 -515px;
+}
+.content_right .api2 a::before {
+   width: 49px;height: 63px;background-position: -86px -486px;
+}
+.content_right .api3 a::before {
+   width: 66px;height: 57px;background-position: -85px -423px;
+}
+.content_right a:hover .btn_link {text-decoration: underline;}
+.content_right a:hover .btn_link::after{background-position: -104px -68px;}
+.content_right .btn_link {
+   display: block;color: #212121;height: 18px;margin-bottom: 10px;line-height: 18px;font-weight: 600;background: gold;
+}
+.content_right .btn_link::after {
+   content: "";display: inline-block;width: 18px;height: 18px;
+   background: url(../img/common/sprite.png) -59px 0;
+   margin-left: 8px;vertical-align: middle;margin-bottom: 3px;
+}
+
+
+/* introduction */
+.content_right tr {border-bottom: 1px solid #efefef;line-height: 55px;}
+.content_right th {float: left;width: 160px;text-align: left;font-weight: 600;}
+.content_right td {float: left;}
+
+/*
+   main .main_contents_wrap .contents_box .content_right li:nth-child(2n+1) {float: left;}
+   main .main_contents_wrap .contents_box .content_right li:nth-child(2n) {float: right;}
+*/

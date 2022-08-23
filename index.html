@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>연습8 - 제이쿼리 플러그인</title>
+
+   <!-- Style Sheet -->
+   <link rel="stylesheet" href="css/jquery.pagepiling.css" />
+   <link rel="stylesheet" href="css/lightbox.css">
+   <link rel="stylesheet" href="css/slick.css">
+   <link rel="stylesheet" href="css/main.css">
+
+   <!-- Java Script -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="js/jquery.pagepiling.js"></script>
+   <script src="js/jquery.easypiechart.js"></script>
+   <script src="js/lightbox.js"></script>
+   <script src="js/masonry.pkgd.js"></script>
+   <script src="js/slick.js"></script>
+   <script src="js/main.js"></script>
+</head>
+<body>
+   <div id="wrap">
+      <header></header>
+      <main>
+         <div class="ico_scroll"><img src="img/scroll.png" alt=""></div>
+         <section class="section" id="home">
+            <h2 class="blind">인사말</h2>
+            <p>안녕하세요. <br> 신입 웹퍼블리셔입니다.</p>
+         </section>
+         <section class="section" id="about">
+            <div class="inner">
+               <h2>나를 소개합니다.</h2>
+               <div class="about_box">
+                  <div class="profile"><!-- 사진 / 프로필 --></div>
+                  <div class="resume"><!-- 교육사항 / 이력사항 / 자격사항 --></div>
+               </div>
+            </div>
+         </section>
+         <section class="section" id="skills">
+            <div class="inner">
+               <h2>SKILLS</h2>
+               <div class="main_skill">
+                  <ul>
+                     <li class="chart chart1" data-percent="95"><span class="title">HTML</span></li>
+                     <li class="chart chart2" data-percent="95"><span class="title">CSS</span></li>
+                     <li class="chart chart3" data-percent="80"><span class="title">JS</span></li>
+                     <li class="chart chart4" data-percent="75"><span class="title">jQuery</span></li>
+                     <li class="chart chart5" data-percent="90"><span class="title">Ps</span></li>
+                     <li class="chart chart6" data-percent="40"><span class="title">Ai</span></li>
+                  </ul>
+               </div>
+               <!-- html, css, javascript, jQuery, 포토샵, 일러, react, php, mysql -->
+               <!-- 한글, msword, 파워포인트, 엑셀, 프리미어, 에펙, -->
+            </div>
+         </section>
+         <section class="section" id="graphic">
+            <div class="inner">
+               <h2>Graphic Works</h2>
+               <ul>
+                  <li><a href="img/pf_1.jpg" data-lightbox="pf" data-title="명함디자인"><img src="img/pf_1.jpg" alt=""></a></li>
+                  <li><a href="img/pf_2.jpg" data-lightbox="pf" data-title="포스트디자인"><img src="img/pf_2.jpg" alt=""></a></li>
+                  <li><a href="img/pf_3.jpg" data-lightbox="pf"><img src="img/pf_3.jpg" alt=""></a></li>
+                  <li><a href="img/pf_4.jpg" data-lightbox="pf"><img src="img/pf_4.jpg" alt=""></a></li>
+                  <li><a href="img/pf_5.jpg" data-lightbox="pf"><img src="img/pf_5.jpg" alt=""></a></li>
+                  <li><a href="img/pf_6.jpg" data-lightbox="pf"><img src="img/pf_6.jpg" alt=""></a></li>
+                  <li><a href="img/pf_7.jpg" data-lightbox="pf"><img src="img/pf_7.jpg" alt=""></a></li>
+                  <li><a href="img/pf_7.png" data-lightbox="pf"><img src="img/pf_7.png" alt=""></a></li>
+                  <li><a href="img/pf_8.png" data-lightbox="pf"><img src="img/pf_8.png" alt=""></a></li>
+                  <li><a href="img/pf_9.png" data-lightbox="pf"><img src="img/pf_9.png" alt=""></a></li>
+                  <li><a href="img/pf_10.jpg" data-lightbox="pf"><img src="img/pf_10.jpg" alt=""></a></li>
+               </ul>
+            </div>
+         </section>
+         <section class="section" id="coding">
+            <div class="inner">
+               <h2>Slick.js</h2>
+               <div class="c1">
+                  <!-- slick 플러그인 사용할때는 ul 태그 사용하지 말 것 -->
+                  <ul>
+                     <li><img src="img/slide_1.jpg" alt=""></li>
+                     <li><img src="img/slide_2.jpg" alt=""></li>
+                     <li><img src="img/slide_3.jpg" alt=""></li>
+                     <li><img src="img/slide_4.jpg" alt=""></li>
+                     <li><img src="img/slide_5.jpg" alt=""></li>
+                     <li><img src="img/slide_6.jpg" alt=""></li>
+                     <li><img src="img/slide_7.jpg" alt=""></li>
+                     <li><img src="img/slide_8.jpg" alt=""></li>
+                  </ul>
+               </div>
+            </div>
+         </section>
+         <section id="web" class="section">
+            <h2>웹사이트 작업물</h2>
+            <p>레이아웃 형태는 생략</p>
+            <ul>
+               <li><a href="web/daebang/" target="_blank">대방건설</a></li>
+               <li><a href="web/jiran/" target="_blank">지란지교시큐리티</a></li>
+               <li><a href="web/komscr/" target="_blank">조폐공사 화폐박물관</a></li>
+               <li><a href="web/kakao/" target="_blank">카카오엔터프라이즈</a></li>
+               <li><a href="web/navercorp/" target="_blank">naver corp</a></li>
+            </ul>
+         </section>
+         <!-- <section class="section" id="graphic2">
+            <div class="inner">
+               <h2>Graphic Works - 2</h2>
+               <ul>
+                  <li><a href="img/pf_1.jpg" data-lightbox="pf"><img src="img/pf_1.jpg" alt=""></a></li>
+                  <li><a href="img/pf_2.jpg" data-lightbox="pf"><img src="img/pf_2.jpg" alt=""></a></li>
+                  <li><a href="img/pf_3.jpg" data-lightbox="pf"><img src="img/pf_3.jpg" alt=""></a></li>
+                  <li><a href="img/pf_4.jpg" data-lightbox="pf"><img src="img/pf_4.jpg" alt=""></a></li>
+                  <li><a href="img/pf_5.jpg" data-lightbox="pf"><img src="img/pf_5.jpg" alt=""></a></li>
+                  <li><a href="img/pf_6.jpg" data-lightbox="pf"><img src="img/pf_6.jpg" alt=""></a></li>
+                  <li><a href="img/pf_7.jpg" data-lightbox="pf"><img src="img/pf_7.jpg" alt=""></a></li>
+                  <li><a href="img/pf_7.png" data-lightbox="pf"><img src="img/pf_7.png" alt=""></a></li>
+                  <li><a href="img/pf_8.png" data-lightbox="pf"><img src="img/pf_8.png" alt=""></a></li>
+                  <li><a href="img/pf_9.png" data-lightbox="pf"><img src="img/pf_9.png" alt=""></a></li>
+                  <li><a href="img/pf_10.jpg" data-lightbox="pf"><img src="img/pf_10.jpg" alt=""></a></li>
+               </ul>
+            </div>
+         </section> -->
+      </main>
+   </div>
+</body>
+</html>

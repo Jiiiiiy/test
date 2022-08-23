@@ -1,0 +1,208 @@
+@charset "utf-8";
+
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+/*common*/
+body {
+  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+  font-size: 16px;color: #333;
+}
+.container {width: 1600px;margin: auto;position: relative;}
+.blind {display: block;width: 1px;height: 1px;overflow: hidden;}
+.clrfix::after {content:"";display: block;clear: both;}
+.skip_nav {display: none;}
+
+/*header*/
+header {
+  position: fixed;left: 0;right: 0;top: 0;z-index: 990;
+  height: 60px;color: #FFF;
+}
+header h1 {position: absolute;left: 0;top: 20px;}
+header h1 a {display: block;width: 140px;height: 20px;background: url(../img/logo_enterprise_b.png);background-size: 100%;}
+
+header.on {
+  position: fixed;left: 0;right: 0;top: 0;z-index: 990;
+  border-bottom: 1px solid #d3d3d3;height: 60px;background: #FFF;
+}
+header.on h1 {position: absolute;left: 0;top: 20px;}
+header.on h1 a {display: block;width: 140px;height: 20px;background: url(../img/logo_enterprise_b.png);background-size: 100%;}
+
+
+header nav {text-align: center;position: relative;z-index: 1;}
+header nav #gnb {display: inline-block;}
+header nav #gnb>li {display: inline-block;vertical-align: top;border: 1px solid red;position: relative;}
+header nav #gnb>li>a {display: block;line-height: 60px;margin: 0 40px;}
+header nav #gnb>li ul {border: 1px solid blue;position: absolute;top: 60px;left: 0;right: 0;padding: 10px 0;z-index: 1;}
+header nav #gnb>li ul li {line-height: 2em;}
+header nav #gnb::after {
+  content:"";display: block;height: 200px;background: orange;
+  position: absolute;left: 0;right: 0;top: 60px;
+}
+header nav #gnb>li>a::after {
+  content:"";display: block;width: 0;height: 2px;background: #31408d;
+  margin-top: -1px;
+}
+header nav #gnb>li>a:hover::after {width: auto;}
+
+header #gnb .recruit_link {position: absolute;right: 0;top: 0;}
+header #gnb .recruit_link::after {
+  content:'';display: block;width: 15px;height: 15px;
+  background: url(../img/ico_pc_210115.png) -30px -30px;
+  background-size: 120px auto;position: absolute;right: 0;top: 50%;
+  transform: translateY(-50%)
+}
+header #gnb .recruit_link>a {margin: 0 25px !important;}
+
+
+/*footer*/
+footer {padding: 30px 0;border-top: 1px solid #dadada;}
+footer strong {
+  display: block;float: left;width: 126px;height: 18px;
+  margin-right: 24px;margin-top: 8px;
+  background: url(../img/logo_enterprise_b.png);
+  background-size: cover;
+}
+footer .footer_menu {float: left;}
+footer .footer_menu li {float: left;font-size: 12px;line-height: 34px;}
+footer .footer_menu li:after {
+  content:"";display: block;width: 1px;height: 10px;background: silver;float: right;margin: 12px;
+}
+footer .footer_menu li:last-child::after {display: none;}
+
+footer .family_site_box {
+  position: relative;float: right;border: 1px solid #dadada;font-size: 13px;}
+footer .family_site_box button {
+  width: 134px;height: 32px;text-align: left;
+  padding: 0 15px;position: relative;
+}
+footer .family_site_box button::after {
+  content:"";display: block;width: 9px;height: 9px;
+  position: absolute;right: 15px;top: 50%;border: 1px solid red;
+  background: url(../img/ico_pc_210115.png) -30px -116px;
+  background-size: 120px 200px;transform: translateY(-50%);
+}
+footer .family_site_box button:hover::after {
+  background-position-x: -40px;
+}
+footer .family_site_box button:active::after {
+  transform: translateY(-50%) rotate(45deg);
+  /*
+    :active 상황에서 사용한 transform 속성에 rotate() 값만 사용하면 
+    세로정렬에서 사용한 translate()가 생략되어 버림
+    :active 상황에 translate() 값을 다시 작성하되, 
+    위치 잡고 회전해야 하기 때문에 순서에 유념할 것
+  */
+}
+footer ul.family_site_list {
+  position: absolute;right: 0;bottom: 40px;
+  width: 480px;background: #FFF;border: 1px solid #dadada;
+}
+footer ul.family_site_list>li {
+  float: left;width: calc(100% / 3);
+  /*height: 112px;border-right: 1px solid orange;padding: 0 20px;
+    : height 값이 정확하지 않고, 내용이 변경되면 숫자값을 다시 계산*/
+  box-sizing: border-box;margin: 25px 0;  
+}
+footer ul.family_site_list>li+li::after {
+  /*li+li ==> 첫째를 제외한 모든 li를 뜻함*/
+  content:"";display: block;width: 1px;background: green;
+  position: absolute;top: 25px;bottom: 25px;
+  /*
+    absolute라 하더라도 좌표값을 설정하지 않으면 static한 위치에 포지션 됨
+    세로좌표 top, bottom은 position이 사용된 조부모 ul 기준으로 배치가 되지만, 
+    가로(좌우)좌표는 선언하지 않아서 직접 부모인 li 기준에 배치 됨
+    부모의 패딩 안쪽 컨텐츠 영역에서 시작됨(static한 위치)
+    2뎁스 ul과 span이 구분선과 떨어지려면 span과 ul에게 각각 여백을 선언해야함
+  */
+}
+/* footer ul.family_site_list>li:first-child::after {display: none;} */
+
+footer ul.family_site_list span {font-weight: 600;padding: 0 20px;}
+footer ul.family_site_list ul {padding: 0 20px;}
+footer ul.family_site_list ul li {margin-top: 20px;color: #666}
+
+footer ul.sns_link {float: right;margin-right: 30px;}
+footer ul.sns_link li {float: left;margin-left: 20px;}
+footer ul.sns_link a {
+  display: block;width: 20px;height: 20px;margin-top: 7px;
+  background-image: url(../img/ico_pc_210115.png);
+  background-size: 120px auto;/*240,400*/
+  /* background-position: -196px -265px; */
+  /*
+    $$ background 속성은 축약형으로 배경과 관련된 모든 속성을 사용한다는 뜻
+    - background-color : transparency;
+    - background-repeat : repeat;
+    - background-image : none
+    - background-position : 0 0;
+    - background-attachment : scroll
+    - background-size : 100%
+
+    * background: 20px 50px; 
+    -color : transparency;
+    -repeat : repeat;
+    -image : none
+    -position : 변경;
+    -attachment : scroll
+    -size : 100%
+
+    **** 스프라이트 사용할 때 여러 선택자로 포지션을 나눠야 하는 경우
+        축약형 사용 금지
+  */
+}
+footer ul.sns_link li:nth-child(1) a {background-position: -2px -132px;}
+footer ul.sns_link li:nth-child(2) a {background-position: -26px -132px;}
+footer ul.sns_link li:nth-child(3) a {background-position: -50px -132px;}
+footer ul.sns_link li:nth-child(4) a {width: 21px;background-position: -73px -132px;}
+footer ul.sns_link li:nth-child(5) a {background-position: -98px -132px;}
+
+footer ul.sns_link li a:hover {background-position-y: -156px;}
+
+/* footer ul.sns_link li:nth-child(1) a:hover {background-position: -2px -156px;}
+footer ul.sns_link li:nth-child(2) a:hover {background-position: -26px -156px;}
+footer ul.sns_link li:nth-child(3) a:hover {background-position: -50px -156px;}
+footer ul.sns_link li:nth-child(4) a:hover {background-position: -73px -156px;}
+footer ul.sns_link li:nth-child(5) a:hover {background-position: -98px -156px;} */
+
+
+/*main*/
+main {margin-bottom: 150px;}
+main .main_visual_wrap {height: 760px;overflow: hidden;position: relative;}
+main .main_visual_wrap video {width: 100%;min-width: 1600px}
+main .main_visual_wrap ul {}
+main .main_visual_wrap li {
+  display: none;position: absolute;left: 50%;top: 50%;width: 1600px;
+  transform: translate(-800px, -50%);color: #FFF;background: pink;
+}
+main .main_visual_wrap li:nth-child(1) {display: block;}
+main .main_visual_wrap li span {font-size: 36px;display: block;}
+main .main_visual_wrap li strong {font-size: 200px;display: block;font-weight: 700;white-space: nowrap;}
+main .main_visual_wrap .img_txt img {width: 1600px;}
+main .main_visual_wrap .img_logo {text-align: center;}
+main .main_visual_wrap .img_logo img {height: 400px;}
+
+main .contents_wrap {padding-top: 56px;}
+main .contents_wrap section {float: left;width: 506px;margin-right: 40px;}
+main .contents_wrap section:nth-child(3n) {margin-right: 0;}
+main .contents_wrap section a {display: block;}
+
+main .contents_wrap .content_1 h2 {
+  margin-bottom: 14px;text-transform: uppercase;font-size: 14px;color:#777;font-weight: 800;}
+  main .contents_wrap .news strong {display: block;margin-bottom: 8px;}
+main .contents_wrap .news strong, main .contents_wrap .partner p {
+  font-size: 20px;line-height: 1.6em;font-weight: 600;}
+main .contents_wrap .news p {
+  font-size: 15px;line-height: 1.7em;color: #777;}
+main .contents_wrap .company p {/*float: left;*/margin-bottom:24px}
+main .contents_wrap .company em {display: block;margin-bottom: 8px;font-size: 30px;font-weight: 700;}
+main .contents_wrap .company span {display: block;font-size: 14px;color:#555;font-weight: 500;}
+main .contents_wrap .company .space {display: inline-block;width: 60px;}
+
+main .contents_wrap .content_2 section {margin-top: 50px;}
+main .contents_wrap .content_2 img {width: 100%;margin-bottom: 16px;}
+main .contents_wrap .content_2 h2 {
+  font-size: 22px;font-weight: 700;line-height: 2.4em;
+}
+main .contents_wrap .content_2 p {
+  font-size: 15px;line-height: 1.7em;color: #777;
+}
